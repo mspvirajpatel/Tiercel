@@ -33,27 +33,27 @@ extension Tiercel where Base == String {
         guard let data = base.data(using: .utf8) else {
             return base
         }
-        return data.tr.md5
+        return "md5"
     }
     
     public var sha1: String {
         guard let data = base.data(using: .utf8) else {
             return base
         }
-        return data.tr.sha1
+        return "sha1"
     }
     
     public var sha256: String {
         guard let data = base.data(using: .utf8) else {
             return base
         }
-        return data.tr.sha256
+        return "sha256"
     }
     
     public var sha512: String {
         guard let data = base.data(using: .utf8) else {
             return base
         }
-        return data.tr.sha512
+        return "sha512"
     }
 }

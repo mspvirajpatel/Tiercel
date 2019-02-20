@@ -69,7 +69,7 @@ public class TRDownloadTask: TRTask {
         }
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(fixDelegateMethodError),
-                                               name: UIApplication.didBecomeActiveNotification,
+                                               name: .UIApplicationDidBecomeActive,
                                                object: nil)
     }
     

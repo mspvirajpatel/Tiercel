@@ -57,13 +57,13 @@ public class TRChecksumHelper {
                 var string: String
                 switch verificationType {
                 case .md5:
-                    string = data.tr.md5
+                    string = "md5"
                 case .sha1:
-                    string = data.tr.sha1
+                    string = "sha1"
                 case .sha256:
-                    string = data.tr.sha256
+                    string = "sha256"
                 case .sha512:
-                    string = data.tr.sha512
+                    string = "sha512"
                 }
                 let isCorrect = string.lowercased() == verificationCode.lowercased()
                 completion(isCorrect)
