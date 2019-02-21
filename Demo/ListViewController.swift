@@ -58,6 +58,16 @@ class ListViewController: UITableViewController {
         let URLStirng = URLStrings[indexPath.row]
         cell.downloadClosure = { cell in
             appDelegate.downloadManager4.download(URLStirng, fileName: cell.URLStringLabel.text)
+            
+            TRManager.default.download("http://api.gfs100.cn/upload/20180201/201802011038548146.mp4", headers: nil, fileName: "Test1.mp4", playlistName: "TestData", id: "1", thumbImage: nil)
+            TRManager.default.download("http://api.gfs100.cn/upload/20180202/201802021436174669.mp4", headers: nil, fileName: "Test2.mp4", playlistName: "TestData1", id: "1", thumbImage: nil)
+            TRManager.default.download("http://api.gfs100.cn/upload/20180131/201801311435101664.mp4", headers: nil, fileName: "Test3.mp4", playlistName: "TestData", id: "1", thumbImage: nil)
+            TRManager.default.download("http://api.gfs100.cn/upload/20180131/201801311059389211.mp4", headers: nil, fileName: "Test4.mp4", playlistName: "TestData1", id: "1", thumbImage: nil)
+            TRManager.default.download("http://api.gfs100.cn/upload/20171219/201712191530562229.mp4", headers: nil, fileName: "Test5.mp4", playlistName: "TestData", id: "1", thumbImage: nil)
+            TRManager.default.download("http://api.gfs100.cn/upload/20171219/201712190944143459.mp4", headers: nil, fileName: "Test6.mp4", playlistName: "TestData2", id: "1", thumbImage: nil)
+            
+            let dictionary = Dictionary(grouping: TRManager.default.tasks, by: { $0.playlistName })
+            
         }
 
         return cell
