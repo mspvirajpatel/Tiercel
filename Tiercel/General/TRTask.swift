@@ -103,6 +103,12 @@ public class TRTask: NSObject, NSCoding {
     internal let url: URL
     
     public let URLString: String
+  
+    public var playlistName: String
+    
+    public var id: String
+    
+    public var thumbImage: String?
     
     private var _currentURLString: String
     internal var currentURLString: String {
@@ -199,9 +205,17 @@ public class TRTask: NSObject, NSCoding {
 
     internal init(_ url: URL,
                 headers: [String: String]? = nil,
-                cache: TRCache) {
+                cache: TRCache,
+                playlistName: String? = "",
+                id: String? = "",
+                thumbImage: String? = nil) {
         self.cache = cache
         self.url = url
+       
+        self.playlistName = playlistName!
+        self.id = id!
+        self.thumbImage = thumbImage
+        
         self.URLString = url.absoluteString
         _currentURLString = url.absoluteString
         _fileName = url.tr.fileName
@@ -210,6 +224,10 @@ public class TRTask: NSObject, NSCoding {
     }
     
     public func encode(with aCoder: NSCoder) {
+        aCoder.encode(playlistName, forKey: "playlistName")
+        aCoder.encode(id, forKey: "id")
+        aCoder.encode(thumbImage, forKey: "thumbImage")
+        
         aCoder.encode(URLString, forKey: "URLString")
         aCoder.encode(currentURLString, forKey: "currentURLString")
         aCoder.encode(fileName, forKey: "fileName")
@@ -228,6 +246,11 @@ public class TRTask: NSObject, NSCoding {
         cache = TRCache.default
         URLString = aDecoder.decodeObject(forKey: "URLString") as! String
         url = URL(string: URLString)!
+        
+        playlistName = aDecoder.decodeObject(forKey: "playlistName") as! String
+        id = aDecoder.decodeObject(forKey: "id") as! String
+        thumbImage = aDecoder.decodeObject(forKey: "thumbImage") as! String
+        
         _currentURLString = aDecoder.decodeObject(forKey: "currentURLString") as! String
         _fileName = aDecoder.decodeObject(forKey: "fileName") as! String
         super.init()

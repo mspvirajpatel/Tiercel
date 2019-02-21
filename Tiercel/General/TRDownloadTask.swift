@@ -43,7 +43,7 @@ public class TRDownloadTask: TRTask {
     internal var tmpFileURL: URL?
     
     internal var tmpFileName: String?
-
+    
     private var resumeData: Data? {
         didSet {
             guard let resumeData = resumeData else { return  }
@@ -54,12 +54,18 @@ public class TRDownloadTask: TRTask {
     internal var validateHandler: TRHandler<TRDownloadTask>?
 
     internal init(_ url: URL,
-                headers: [String: String]? = nil,
-                fileName: String? = nil,
-                cache: TRCache) {
+                  headers: [String: String]? = nil,
+                  fileName: String? = nil,
+                  cache: TRCache,
+                  playlistName: String? = "",
+                  id: String? = "",
+                  thumbImage: String? = nil) {
         super.init(url,
                    headers: headers,
-                   cache: cache)
+                   cache: cache,
+                   playlistName: playlistName,
+                   id: id,
+                   thumbImage: thumbImage)
         if let fileName = fileName,
             !fileName.isEmpty {
             self.fileName = fileName

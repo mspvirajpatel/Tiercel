@@ -244,7 +244,10 @@ extension TRManager {
     @discardableResult
     public func download(_ URLString: String,
                          headers: [String: String]? = nil,
-                         fileName: String? = nil) -> TRDownloadTask? {
+                         fileName: String? = nil,
+                         playlistName: String? = "",
+                         id: String? = "",
+                         thumbImage: String? = nil) -> TRDownloadTask? {
         
         guard let url = URL(string: URLString) else {
             TiercelLog("[manager] URLString错误：\(URLString), manager.identifier: \(identifier)")
@@ -261,7 +264,10 @@ extension TRManager {
             task = TRDownloadTask(url,
                                   headers: headers,
                                   fileName: fileName,
-                                  cache: cache)
+                                  cache: cache,
+                                  playlistName: playlistName,
+                                  id: id,
+                                  thumbImage: thumbImage)
             task?.manager = self
             task?.session = session
             tasks.append(task!)
