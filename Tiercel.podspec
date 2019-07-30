@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.homepage         = 'https://github.com/Danie1s/Tiercel'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Daniels' => '176516837@qq.com' }
-  s.source           = { :git => 'https://github.com/mspviraj/Tiercel.git', :branch => 'swift4' }
+  s.source           = { :git => 'https://github.com/mspvirajpatel/Tiercel.git', :branch => 'swift4' }
 
   s.ios.deployment_target = '8.0'
 
