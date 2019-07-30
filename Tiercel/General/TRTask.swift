@@ -249,7 +249,7 @@ open class TRTask: NSObject, NSCoding {
         
         playlistName = aDecoder.decodeObject(forKey: "playlistName") as! String
         id = aDecoder.decodeObject(forKey: "id") as! String
-        thumbImage = aDecoder.decodeObject(forKey: "thumbImage") as! String
+        thumbImage = aDecoder.decodeObject(forKey: "thumbImage") as? String
         
         _currentURLString = aDecoder.decodeObject(forKey: "currentURLString") as! String
         _fileName = aDecoder.decodeObject(forKey: "fileName") as! String
