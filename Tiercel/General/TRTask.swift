@@ -35,10 +35,10 @@ extension TRTask {
 }
 
 
-public class TRTask: NSObject, NSCoding {
+open class TRTask: NSObject, NSCoding {
 
     internal weak var manager: TRManager?
-    internal var cache: TRCache
+    open var cache: TRCache
     internal var session: URLSession?
     
     internal var headers: [String: String]?
